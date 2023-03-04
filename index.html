@@ -18,7 +18,7 @@
     
     <div class="container mt-4">
       <div class="row">
-        <div class="col-6 row-heading">
+        <div class="col-2 row-heading">
           Field
         </div>
         <div class="col-3 row-heading">
@@ -34,62 +34,75 @@
          
       </div>
       <div class="row">
-        <div class="col-6">
+        <div class="col-2">
           Price
         </div>
         <div class="col-3">
-          <input type="number" value="0" class="cci" id="cci_price"/>
+          <input type="number" value="0" class="cci form-control" id="cci_price"/>
         </div>
         <div class="col-1">
-          <button type="button" class="btn btn-primary d-none" id="cci_price_copy_button">Copy</button>
+          <button type="button" class="btn btn-primary d-none" id="nkndkfdsnkf">Copz</button>
         </div>
         <div class="col-2">
-          <input type="number" readonly value="0" id="cciout_price"/>
+          <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary" type="button" id="cci_price_copy_button" disabled>Copy</button>
+            <input type="number" class="form-control" readonly value="0" id="cciout_price"/>
+          </div>
         </div>
       </div>
       
        <div class="row my-3">
-        <div class="col-6">
+        <div class="col-2">
           Cost
         </div>
         <div class="col-3">
-          <input type="number" value="0" class="cci" id="cci_cost"/>
+          <input type="number" value="0" class="cci form-control" id="cci_cost"/>
         </div>
         <div class="col-1">
           
         </div>
         <div class="col-2">
-          <input type="number" readonly value="0" id="cciout_cost"/>
+          <input type="number" readonly value="0" class="form-control" id="cciout_cost"/>
         </div>
       </div>
       
       <div class="row my-3">
-        <div class="col-6">
+        <div class="col-2">
           CCI $
         </div>
         <div class="col-3">
-          <input type="number" class="ccival" value="0" id="cci_cci"/>
+          
+          <div class="mb-3 input-group">
+            <span class="input-group-text">CCI $</span>
+            <input type="number" class="form-control ccival" id="cci_cci" placeholder="0.00">
+          </div>
         </div>
         <div class="col-1">
           
         </div>
         <div class="col-2">
-          <input type="number" readonly value="0" id="cciout_cci"/>
+          <input type="number" readonly class="form-control" value="0" id="cciout_cci"/>
         </div>
       </div>
       
       <div class="row my-3">
-        <div class="col-6">
+        <div class="col-2">
           CCI %
         </div>
         <div class="col-3">
-          <input type="number" class="ccipct" value="0" id="cci_ccipct"/>
+          <!-- <input type="number" class="ccipct" value="0" id="cci_ccipct"/>-->
+          <div class="input-group mb-3">
+            <span class="input-group-text">CCI %</span>
+            <input type="number" class="form-control ccipct" id="cci_ccipct" placeholder="0.00">
+            <span class="input-group-text">%</span>
+          </div>
+
         </div>
         <div class="col-1">
           
         </div>
         <div class="col-2">
-          <input type="number" readonly value="0" id="cciout_ccipct"/>
+          <input type="number" readonly value="0"  class="form-control" id="cciout_ccipct"/>
         </div>
       </div>
     
