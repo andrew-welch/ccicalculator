@@ -67,9 +67,9 @@ function copyOutputPrice () {
   let output={}
   
   values.price = ($("#cci_price").val());
-  output.price = values.price;
+  output.price = values.price.toFixed(2);
   
-  $("#cci_price").val(output.price.toFixed(2));
+  $("#cci_price").val(output.price);
   
   $("#cci_price_copy_button").addClass("d-none");
   
