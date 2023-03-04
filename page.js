@@ -46,7 +46,7 @@ function calculateCCIfrompct()
     output.price = values.cost / (1-values.ccipct);
     output.cci = values.ccipct * output.price;
     output.cost = values.cost
-    $("#cci_price_copy_button").removeClass("d-none");
+    $("#cci_price_copy_button").prop('disabled', false);
   }
   
  
@@ -69,7 +69,8 @@ function copyOutputPrice () {
   
   $("#cci_price").val(output.price);
   
-  $("#cci_price_copy_button").addClass("d-none");
+  $("#cci_price_copy_button").prop('disabled', true);
+  
   
   calculateCCI();
   
