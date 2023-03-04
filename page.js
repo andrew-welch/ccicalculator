@@ -14,6 +14,7 @@ function calculateCCI()
 
 
   output.cci = values.price - values.cost;
+  output.ccipct = 0;
   if (values.price != 0){
     output.ccipct = 100* output.cci / values.price ; }
  
@@ -59,3 +60,24 @@ $(function()
  {
     $(".ccipct").on("change keyup",calculateCCIfrompct)
 })
+
+function copyOutputPrice () {
+  
+  let values={}
+  let output={}
+  
+  values.price = ($("#cci_price").val());
+  output.price = values.price;
+  
+  $("#cci_price").val(output.price.toFixed(2));
+  
+  $("#cci_price_copy_button").addClass("d-none");
+  
+}
+
+$(function()
+ {
+    $("#cci_price_copy_button").on("click", copyOutputPrice)
+})
+
+
