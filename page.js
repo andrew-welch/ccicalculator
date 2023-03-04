@@ -42,9 +42,10 @@ function calculateCCIfrompct()
   values.ccipct = ($("#cci_ccipct").val()/100)
 
   if (values.ccipct != 1) {
-  output.price = values.cost / (1-values.ccipct);
-  output.cci = values.ccipct * output.price;
-  output.cost = values.cost
+    output.price = values.cost / (1-values.ccipct);
+    output.cci = values.ccipct * output.price;
+    output.cost = values.cost
+    $("#cci_price_copy_button").removeClass("d-none");
   }
   
  
