@@ -71,6 +71,8 @@ function copyOutputPrice () {
   
   $("#cci_price_copy_button").addClass("d-none");
   
+  calculateCCI();
+  
 }
 
 $(function()
