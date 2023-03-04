@@ -63,11 +63,9 @@ $(function()
 
 function copyOutputPrice () {
   
-  let values={}
   let output={}
   
-  values.price = ($("#cci_price").val());
-  output.price = parseFloat(values.price);
+  output.price = ($("#cciout_price").val());
   
   $("#cci_price").val(output.price);
   
