@@ -14,6 +14,7 @@ function calculateCCI()
 
 
   output.cci = values.price - values.cost;
+  output.ccipct = 0;
   if (values.price != 0){
     output.ccipct = 100* output.cci / values.price ; }
  
@@ -42,9 +43,10 @@ function calculateCCIfrompct()
   values.ccipct = ($("#cci_ccipct").val()/100)
 
   if (values.ccipct != 1) {
-  output.price = values.cost / (1-values.ccipct);
-  output.cci = values.ccipct * output.price;
-  output.cost = values.cost
+    output.price = values.cost / (1-values.ccipct);
+    output.cci = values.ccipct * output.price;
+    output.cost = values.cost
+    $("#cci_price_copy_button").removeClass("d-none");
   }
   
  
@@ -58,3 +60,22 @@ $(function()
  {
     $(".ccipct").on("change keyup",calculateCCIfrompct)
 })
+
+function copyOutputPrice () {
+  
+  let output={}
+  
+  output.price = ($("#cciout_price").val());
+  
+  $("#cci_price").val(output.price);
+  
+  $("#cci_price_copy_button").addClass("d-none");
+  
+}
+
+$(function()
+ {
+    $("#cci_price_copy_button").on("click", copyOutputPrice)
+})
+
+
