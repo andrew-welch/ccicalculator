@@ -69,7 +69,12 @@ function calculatecostfrompriceCCI()
 
   output.cost = values.price * (1-values.ccipct)
   
-  $("#cciout_cost").val(output.cost);
+  $("#cciout_cost").val(output.cost.toFixed(2));
+
+  
+  $("#cci_cost_copy_button").prop('disabled', false);
+  $("#cci_cost_copy_button").removeClass('btn-outline-secondary');
+  $("#cci_cost_copy_button").addClass('btn-primary');
 }
 
 $(function()
@@ -95,6 +100,26 @@ function copyOutputPrice () {
 $(function()
  {
     $("#cci_price_copy_button").on("click", copyOutputPrice)
+})
+
+function copyOutputCost () {
+  
+  let output={}
+  
+  output.cost = ($("#cciout_cost").val());
+  $("#cci_cost").val(output.cost);
+  
+  $("#cci_cost_copy_button").prop('disabled', true);
+  $("#cci_cost_copy_button").addClass('btn-outline-secondary');
+  $("#cci_cost_copy_button").removeClass('btn-primary');
+  
+  calculateCCI();
+  
+}
+
+$(function()
+ {
+    $("#cci_cost_copy_button").on("click", copyOutputCost)
 })
 
 
