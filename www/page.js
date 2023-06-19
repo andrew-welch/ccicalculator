@@ -67,7 +67,7 @@ function calculatecostfrompriceCCI()
   values.cci = ($("#cci_cci").val())
   values.ccipct = ($("#cci_ccipct").val()/100)
 
-  output.cost = values.price * (1-values.CCI)
+  output.cost = values.price * (1-values.ccipct)
   
   $("#cciout_cost").val(output.cost);
 }
