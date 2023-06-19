@@ -57,6 +57,26 @@ $(function()
     $(".ccipct").on("change keyup",calculateCCIfrompct)
 })
 
+function calculatecostfrompriceCCI()
+{
+  let values={}
+  let output={}
+  
+  values.price = ($("#cci_price").val())
+  values.cost = ($("#cci_cost").val())
+  values.cci = ($("#cci_cci").val())
+  values.ccipct = ($("#cci_ccipct").val()/100)
+
+  output.cost = values.price * (1-values.CCI)
+  
+  $("#cciout_cost").val(output.cost);
+}
+
+$(function()
+ {
+    $(".ccipct").on("change keyup",calculatecostfrompriceCCI)
+})
+
 function copyOutputPrice () {
   
   let output={}
