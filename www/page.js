@@ -2,7 +2,6 @@
 function calculateCCI()
 {
 
-  
   let values={}
   let output={}
   
@@ -10,8 +9,6 @@ function calculateCCI()
   values.cost = ($("#cci_cost").val())
   values.cci = ($("#cci_cci").val())
   values.ccipct = ($("#cci_ccipct").val())
-
-
 
   output.cci = values.price - values.cost;
   output.ccipct = 0;
@@ -23,8 +20,6 @@ function calculateCCI()
   
 }
 
-
-
 $(function()
  {
     $(".cci").on("change keyup",calculateCCI)
@@ -33,7 +28,6 @@ $(function()
 function calculateCCIfrompct()
 {
 
-  
   let values={}
   let output={}
   
@@ -52,7 +46,6 @@ function calculateCCIfrompct()
   
   }
   
- 
   $("#cciout_cci").val(output.cci.toFixed(2));
   $("#cciout_price").val(output.price.toFixed(2));
   $("#cciout_cost").val(output.cost);
@@ -69,14 +62,11 @@ function copyOutputPrice () {
   let output={}
   
   output.price = ($("#cciout_price").val());
-  
   $("#cci_price").val(output.price);
   
   $("#cci_price_copy_button").prop('disabled', true);
   $("#cci_price_copy_button").addClass('btn-outline-secondary');
   $("#cci_price_copy_button").removeClass('btn-primary');
-  
-  
   
   calculateCCI();
   
