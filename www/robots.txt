@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://ccicalculator.com/sitemap.xml
