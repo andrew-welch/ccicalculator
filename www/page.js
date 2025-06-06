@@ -17,7 +17,8 @@ function calculateCCI()
  
   $("#cciout_cci").val(output.cci.toFixed(2));
   $("#cciout_ccipct").val(output.ccipct.toFixed(4));
-  
+  $cciout_cci= $("#cciout_cci");
+  flashInput($cciout_cci);
 }
 
 $(function()
@@ -122,4 +123,9 @@ $(function()
     $("#cci_cost_copy_button").on("click", copyOutputCost)
 })
 
+function flashInput(inputElement) {
+  inputElement.classList.remove('flash-gradient'); // Reset animation
+  void inputElement.offsetWidth; // Force reflow
+  inputElement.classList.add('flash-gradient');
+}
 
