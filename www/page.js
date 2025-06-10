@@ -18,7 +18,12 @@ function calculateCCI()
   $("#cciout_cci").val(output.cci.toFixed(2));
   $("#cciout_ccipct").val(output.ccipct.toFixed(4));
   $cciout_cci= $("#cciout_cci");
-  flashInput($cciout_cci);
+  var original_color = $("#cciout_cci").css('border-left-color');
+
+  $("#cciout_cci")
+    .animate({borderColor:'red'}, 400, 'linear')
+    .delay(400)
+    .animate({borderColor:original_color}, 2800, 'easeOutCirc');
 }
 
 $(function()
@@ -128,4 +133,6 @@ function flashInput(inputElement) {
   void inputElement.offsetWidth; // Force reflow
   inputElement.classList.add('flash-gradient');
 }
+
+
 
