@@ -78,7 +78,8 @@ function calculatecostfrompriceCCI()
   output.cost = values.price * (1-values.ccipct)
   
   $("#cciout_cost").val(output.cost.toFixed(2));
-   $("#cciout_cost").effect("highlight");
+   $("#cciout_cost").effect({ effect: 'highlight' ,queue: false });
+  
 
   
   $("#cci_cost_copy_button").prop('disabled', false);
