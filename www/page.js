@@ -17,7 +17,7 @@ function calculateCCI()
  
   $("#cciout_cci").val(output.cci.toFixed(2));
   $("#cciout_ccipct").val(output.ccipct.toFixed(4));
-  if ($cciout_cci != $("#cciout_cci")) {$("#cciout_cci").effect("highlight");}
+  if (output.cci.toFixed(2) != $("#cciout_cci")) {$("#cciout_cci").effect("highlight");}
   $cciout_cci= $("#cciout_cci");
 
 }
