@@ -26,3 +26,19 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+
+@keyframes flash-gradient {
+  0% {
+    background-image: linear-gradient(to right, #007BFF33, #007BFF66);
+    background-color: #007BFF33;
+  }
+  100% {
+    background-image: none;
+    background-color: transparent;
+  }
+}
+
+.flash-gradient {
+  animation: flash-gradient 0.6s ease;
+}

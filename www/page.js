@@ -17,7 +17,10 @@ function calculateCCI()
  
   $("#cciout_cci").val(output.cci.toFixed(2));
   $("#cciout_ccipct").val(output.ccipct.toFixed(4));
-  
+  if (output.cci.toFixed(2) != $("#cciout_cci")) {$("#cciout_cci").effect("highlight");}
+  if (output.ccipct.toFixed(4) != $("#cciout_ccipct")) {$("#cciout_ccipct").effect("highlight");}
+  $cciout_cci= $("#cciout_cci");
+
 }
 
 $(function()
@@ -45,9 +48,15 @@ function calculateCCIfrompct()
     $("#cci_price_copy_button").addClass('btn-primary');
   
   }
-  
+
+  if (output.cci.toFixed(2) !=  $("#cciout_cci")) { $("#cciout_cci").effect("highlight");}
   $("#cciout_cci").val(output.cci.toFixed(2));
+
+  if (output.price.toFixed(2) !=  $("#cciout_price")) { $("#cciout_price").effect("highlight");}
   $("#cciout_price").val(output.price.toFixed(2));
+  
+  
+  if (output.cost !=  $("#cciout_cost")) { $("#cciout_cost").effect("highlight");}
   $("#cciout_cost").val(output.cost);
   
 }
@@ -70,6 +79,8 @@ function calculatecostfrompriceCCI()
   output.cost = values.price * (1-values.ccipct)
   
   $("#cciout_cost").val(output.cost.toFixed(2));
+   $("#cciout_cost").effect({ effect: 'highlight' ,queue: true });
+  
 
   
   $("#cci_cost_copy_button").prop('disabled', false);
@@ -88,6 +99,7 @@ function copyOutputPrice () {
   
   output.price = ($("#cciout_price").val());
   $("#cci_price").val(output.price);
+  $("#cci_price").effect("highlight");
   
   $("#cci_price_copy_button").prop('disabled', true);
   $("#cci_price_copy_button").addClass('btn-outline-secondary');
@@ -107,6 +119,8 @@ function copyOutputCost () {
   let output={}
   
   output.cost = ($("#cciout_cost").val());
+
+  $("#cci_cost").effect("highlight");
   $("#cci_cost").val(output.cost);
   
   $("#cci_cost_copy_button").prop('disabled', true);
@@ -121,5 +135,12 @@ $(function()
  {
     $("#cci_cost_copy_button").on("click", copyOutputCost)
 })
+
+function flashInput(inputElement) {
+  inputElement.classList.remove('flash-gradient'); // Reset animation
+  void inputElement.offsetWidth; // Force reflow
+  inputElement.classList.add('flash-gradient');
+}
+
 
 

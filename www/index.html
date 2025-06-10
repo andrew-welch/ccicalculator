@@ -20,6 +20,7 @@
     })(window, document, "clarity", "script", "r2fj84tj6t");
     </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jqueryui@1.11.1/jquery-ui.min.css" integrity="sha256-orjEV2zLazjvpIqT0mVRAYVbewIvSmbv6s+l8tW9Xxg=" crossorigin="anonymous">
     <link href="page.css" rel="stylesheet" type="text/css" media="all" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="utf-8">
@@ -131,10 +132,96 @@
     
       
     </div>
+<div class="container">
+<div class="card mb-4">
+            <div class="card-header">
+                <h2>Summary</h2>
+            </div>
+            <div class="card-body">
+                <p>The <strong>CCI Calculator</strong> (Controllable Contract Income Calculator) is a web-based tool designed to help consulting professionals quickly recalculate and assess deal metrics. It enables users to model the financial impact of changes in key variables—such as rates, effort, and duration—on the controllable income of a consulting engagement.</p>
+            </div>
+        </div>
+
+<div class="card mb-4">
+  <div class="card-header">
+    <h2>Common Scenarios</h2>
+  </div>
+  <div class="card-body">
+    
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Simple calculation of CCI from price and cost.
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        1. Enter the total price of the engagement (e.g. $500,000). <br />
+        2. Enter the total cost (e.g. $350,000). <br />
+        The calculator will compute the value and percentage of CCI and display them on the right: $150,000 and 30%.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Capculate target price from cost and target margin.
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        1. Enter the total cost of the engagement (e.g. $500,000).<br />
+        2. Enter the target margin in % (e.g. 30).<br />
+        The calculator will compute the price and display it on the right: $714,285.71. It will also calculate margin in dollars.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Using existing metrics, update the margin percentage and find a new target price or cost.
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <p>
+          1. Enter the total price (e.g. $500,000).<br />
+          2. Enter the total cost (e.g. $350,000).<br />
+          3. Enter the <strong>new target margin</strong>.<br />
+          4. The output price and output cost values will be updated to new deal metrics. Press copy to clone one of them to the input column, depending on of you want to adjust price or cost.<br />
+          5. The updated metrics will be displayed!
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  </div>
+
+</div>
+  
+  <div class="card mt-4">
+    <div class="card-header">
+      <h2>Background</h2>
+    </div>
+    <div class="card-body">
+      <p>
+      Controllable Contract Income (CCI) is a key financial metric in consulting that reflects the profit margin a team can influence through delivery efficiency, staffing, and scope management. Unlike gross margin, CCI excludes uncontrollable overheads and focuses on what the delivery team can manage directly.
+The CCI Calculator was developed to support this author's deal shaping by providing a quick and interactive way to test assumptions and improve decision-making. It is especially useful during pre-sales, contract negotiations, and internal approvals.
+
+      </p> 
+    </div>
+  </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/jqueryui@1.11.1/jquery-ui.min.js" integrity="sha256-4JY5MVcEmAVSuS6q4h9mrwCm6KNx91f3awsSQgwu0qc=" crossorigin="anonymous"></script>
     <script src='page.js'></script>
   </body> 
 </html>
