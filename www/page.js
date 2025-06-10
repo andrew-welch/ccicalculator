@@ -18,6 +18,7 @@ function calculateCCI()
   $("#cciout_cci").val(output.cci.toFixed(2));
   $("#cciout_ccipct").val(output.ccipct.toFixed(4));
   if (output.cci.toFixed(2) != $("#cciout_cci")) {$("#cciout_cci").effect("highlight");}
+  if (output.ccipct.toFixed(4) != $("#cciout_ccipct")) {$("#cciout_ccipct").effect("highlight");}
   $cciout_cci= $("#cciout_cci");
 
 }
@@ -78,7 +79,7 @@ function calculatecostfrompriceCCI()
   output.cost = values.price * (1-values.ccipct)
   
   $("#cciout_cost").val(output.cost.toFixed(2));
-   $("#cciout_cost").effect({ effect: 'highlight' ,queue: false });
+   $("#cciout_cost").effect({ effect: 'highlight' ,queue: true });
   
 
   
