@@ -23,7 +23,7 @@ function calculateCCI()
   $("#cciout_cci")
     .animate({borderColor:'red'}, 400, 'linear')
     .delay(400)
-    .animate({borderColor:original_color}, 2800, 'easeOutCirc');
+    .animate({borderColor:original_color}, 400, 'easeOutCirc');
 }
 
 $(function()
