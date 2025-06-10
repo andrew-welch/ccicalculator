@@ -18,7 +18,7 @@ function calculateCCI()
   $("#cciout_cci").val(output.cci.toFixed(2));
   $("#cciout_ccipct").val(output.ccipct.toFixed(4));
   $cciout_cci= $("#cciout_cci");
-  var original_color = $("#cciout_cci").css('border-left-color');
+  var original_color = "rgb(73 80 87)";
 
   $("#cciout_cci")
     .animate({borderColor:'red'}, 400, 'linear')
