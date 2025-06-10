@@ -25,7 +25,7 @@ function calculateCCI()
   //  .delay(400)
   //  .animate({borderColor:original_color}, 400, 'easeOutCirc');
   var options = {};
-  $( "#cciout_cci" )..toggle( "highlight" );
+  $( "#cciout_cci" ).toggle( "highlight" );
 }
 
 $(function()
