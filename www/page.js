@@ -20,10 +20,12 @@ function calculateCCI()
   $cciout_cci= $("#cciout_cci");
   var original_color = 'rgb (73, 80, 87)';
 
-  $("#cciout_cci")
-    .animate({borderColor:'red'}, 400, 'linear')
-    .delay(400)
-    .animate({borderColor:original_color}, 400, 'easeOutCirc');
+  //$("#cciout_cci")
+  //  .animate({borderColor:'red'}, 400, 'linear')
+  //  .delay(400)
+  //  .animate({borderColor:original_color}, 400, 'easeOutCirc');
+  var options = {};
+  $( "#cciout_cci" ).effect( highlight, options, 500 );
 }
 
 $(function()
