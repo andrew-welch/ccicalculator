@@ -1,9 +1,8 @@
 name: Get Cloudflare Preview URL
 on:
   push:
-    branches: [ '!main' ]
-  pull_request:
-    branches: [ ** ]
+    branches-ignore: main
+  pull_request: 
 
 jobs:
   get-cf-URL:
