@@ -13,7 +13,7 @@ jobs:
     - name: Sleep
       run: sleep 30
     - name: Debug
-      run: echo "GH Head Ref: ${{ github.head_ref }} Or ${{ github.Ref}}"
+      run: echo "GH Head Ref ${{ github.head_ref }} Or ${{ github.Ref}}"
     - name: cloudflare-preview-url
 # Use the latest version
       uses: zentered/cloudflare-preview-url@v1.4.2
