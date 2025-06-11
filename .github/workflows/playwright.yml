@@ -13,7 +13,7 @@ jobs:
       - name: Sleep
         run: sleep 30
       - name: Debug
-        run: echo "GH Head Ref:${{ github.head.ref }}  "
+        run: echo "GH Head Ref:${{ github.head_ref }}  "
       - name: cloudflare-preview-url
   # Use the latest version
         uses: zentered/cloudflare-preview-url@v1.4.2
@@ -25,7 +25,7 @@ jobs:
         with:
           cloudflare_project_id: 'ccicalculator'
           wait_until_ready: true
-          branch: ${{ github.head.ref }}  
+          branch: ${{ github.head_ref }}  
       - name: Get URL
         run: echo "https://${{ steps.cloudflare_preview_url.outputs.preview_url }}"
         env:
