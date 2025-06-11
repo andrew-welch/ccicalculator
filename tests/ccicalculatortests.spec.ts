@@ -22,7 +22,8 @@ export default defineConfig({
 });
 
 test('test', async ({ page }) => {
-  await page.goto('process.env.CLOUDFLARE_PREVIEW_URL');
+  //await page.goto('process.env.CLOUDFLARE_PREVIEW_URL');
+  await page.goto('http://localhost:3000/');
   await page.locator('#cci_price').click();
   await page.locator('#cci_price').fill('1000000');
   await page.keyboard.up("0");
