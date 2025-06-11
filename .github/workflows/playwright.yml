@@ -23,7 +23,7 @@ jobs:
         with:
           cloudflare_project_id: 'ccicalculator'
           wait_until_ready: true
-          branch: ${{ GITHUB_REF_NAME}} 
+          branch: ${{ GITHUB_REF_NAME }} 
       - name: Get URL
         run: echo "https://${{ steps.cloudflare_preview_url.outputs.preview_url }}"
         env:
