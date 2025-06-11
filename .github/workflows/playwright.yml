@@ -23,13 +23,13 @@ jobs:
         with:
           cloudflare_project_id: 'ccicalculator'
           wait_until_ready: true
-          branch: ${{ github.ref.name }} 
+          branch: ${{ github.head.ref }}  
       - name: Get URL
         run: echo "https://${{ steps.cloudflare_preview_url.outputs.preview_url }}"
         env:
           CLOUDFLARE_PREVIEW_URL: "https://${{ steps.cloudflare_preview_url.outputs.preview_url }}"
   
-  test:
+  RunPlayWrightTests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
