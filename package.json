@@ -1,0 +1,26 @@
+{
+  "name": "ccicalculator",
+  "version": "1.0.0",
+  "description": "_Repo metadata_",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrew-welch/ccicalculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/andrew-welch/ccicalculator/issues"
+  },
+  "homepage": "https://github.com/andrew-welch/ccicalculator#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.53.0",
+    "@types/node": "^24.0.0"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}

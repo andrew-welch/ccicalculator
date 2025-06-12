@@ -1,0 +1,31 @@
+name: Get Cloudflare Preview URL
+on:
+  push:
+    branches-ignore: main
+  pull_request: 
+
+jobs:
+  get-cf-URL:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sleep
+      run: sleep 10
+    - name: Debug
+      run: echo "GH Head Ref ${{ github.head_ref }} Or github ref ${{ github.Ref}}"
+    - name: cloudflare-preview-url
+      continue-on-error: true
+# Use the latest version
+      uses: zentered/cloudflare-preview-url@v1.4.2
+      id: cloudflare_preview_url
+      env:
+        CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      with:
+        cloudflare_project_id: 'ccicalculator'
+        wait_until_ready: true
+        branch: ${{ github.head_ref }}
+    - name: Get URL
+      run: echo "https://${{ steps.cloudflare_preview_url.outputs.preview_url }}"
+      env:
+        CLOUDFLARE_PREVIEW_URL: "https://${{ steps.cloudflare_preview_url.outputs.preview_url }}"
