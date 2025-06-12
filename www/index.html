@@ -45,30 +45,30 @@
     <h1 class="text-center"> Profit (CCI) Calculator</h1>
     
     <div class="container mt-4">
-      <div class="row"> 
-        <div class="col-2 row-heading">
+      <div class="row my-1 my-sm-4"> 
+        <div class="col-2 row-heading d-none d-sm-block">
           Field
         </div>
-        <div class="col-5 row-heading">
+        <div class="col-6 col-sm-5 row-heading text-center">
           Input
         </div>
         
-        <div class="col-5 row-heading">
+        <div class="col-6 col-sm-5 row-heading text-center">
           Output
         </div>
 
         
          
       </div>
-      <div class="row">
-        <div class="col-2">
+      <div class="row gy-2">
+        <div class="col-12 col-sm-2 text-center text-sm-start ">
           Price
         </div>
-        <div class="col-5">
+        <div class="col-6 col-sm-5">
           <input type="number" value="0" class="cci form-control" id="cci_price"/>
         </div>
         
-        <div class="col-5">
+        <div class="col-6 col-sm-5">
           <div class="input-group mb-3">
             <button class="btn btn-outline-secondary" type="button" id="cci_price_copy_button" disabled>Copy</button>
             <input type="number" class="form-control" readonly value="0" id="cciout_price"/>
@@ -76,15 +76,15 @@
         </div>
       </div>
       
-       <div class="row my-3">
-        <div class="col-2">
+       <div class="row my-sm-3 gy-2">
+        <div class="col-12 col-sm-2 text-center text-sm-start">
           Cost
         </div>
-        <div class="col-5">
+        <div class="col-6 col-sm-5">
           <input type="number" value="0" class="cci form-control" id="cci_cost"/>
         </div>
         
-        <div class="col-5">
+        <div class="col-6 col-sm-5">
 
           <div class="input-group mb-3">
             <button class="btn btn-outline-secondary" type="button" id="cci_cost_copy_button" disabled>Copy</button>
@@ -94,11 +94,11 @@
         </div>
       </div>
       
-      <div class="row my-3">
-        <div class="col-2">
+      <div class="row my-sm-3 gy-2">
+        <div class="col-12 col-sm-2 text-center text-sm-start">
           CCI $
         </div>
-        <div class="col-5">
+        <div class="col-6 col-sm-5">
           
           <div class="mb-3 input-group">
             <span class="input-group-text">CCI $</span>
@@ -106,16 +106,16 @@
           </div>
         </div>
       
-        <div class="col-5">
+        <div class="col-6 col-sm-5">
           <input type="number" readonly class="form-control" value="0" id="cciout_cci"/>
         </div>
       </div>
       
-      <div class="row my-3">
-        <div class="col-2">
+      <div class="row my-sm-3 gy-2">
+        <div class="col-12 col-sm-2 text-center text-sm-start">
           CCI %
         </div>
-        <div class="col-5"> 
+        <div class="col-6 col-sm-5"> 
           <!-- <input type="number" class="ccipct" value="0" id="cci_ccipct"/>-->
           <div class="input-group mb-3">
             <span class="input-group-text">CCI %</span>
@@ -125,7 +125,7 @@
 
         </div>
         
-        <div class="col-5">
+        <div class="col-6 col-sm-5">
           <input type="number" readonly value="0"  class="form-control" id="cciout_ccipct"/>
         </div>
       </div>
