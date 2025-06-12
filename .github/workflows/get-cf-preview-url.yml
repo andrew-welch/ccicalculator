@@ -14,6 +14,7 @@ jobs:
     - name: Debug
       run: echo "GH Head Ref ${{ github.head_ref }} Or github ref ${{ github.Ref}}"
     - name: cloudflare-preview-url
+      continue-on-error: true
 # Use the latest version
       uses: zentered/cloudflare-preview-url@v1.4.2
       id: cloudflare_preview_url
