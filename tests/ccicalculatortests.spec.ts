@@ -21,7 +21,7 @@ export default defineConfig({
 
 });
 
-test('test', async ({ page }) => {
+test('Basic', async ({ page }) => {
   //await page.goto('process.env.CLOUDFLARE_PREVIEW_URL');
   await page.goto('http://localhost:3000/');
   await page.locator('#cci_price').click();
@@ -50,4 +50,23 @@ test('test', async ({ page }) => {
     - button "Copy" [disabled]
     - spinbutton: /\\d+\\.\\d+/
     `);
+});
+
+test('Content is visible', async ({ page }) => {  
+await page.goto('http://localhost:3000/');
+await expect(page.locator('#cci_price')).toBeVisible();
+await expect(page.locator('#cci_cost')).toBeVisible();
+await expect(page.locator('#cci_cci')).toBeVisible();
+await expect(page.locator('#cci_ccipct')).toBeVisible();
+await expect(page.locator('#cciout_price')).toBeVisible();
+await expect(page.locator('#cciout_cost')).toBeVisible();
+await expect(page.locator('#cciout_cci')).toBeVisible();
+await expect(page.locator('#cciout_ccipct')).toBeVisible();
+await expect(page.getByText('1. Enter the total price of')).toBeVisible();
+await page.getByRole('button', { name: 'Simple calculation of CCI' }).click();
+await page.getByRole('button', { name: 'Calculate target price from' }).click();
+await expect(page.getByText('1. Enter the total cost of')).toBeHidden();
+await page.getByRole('button', { name: 'Calculate target price from' }).click();
+await page.getByRole('button', { name: 'Using existing metrics,' }).click();
+await expect(page.getByText('1. Enter the total price (e.g')).toBeVisible();
 });
