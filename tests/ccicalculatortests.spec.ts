@@ -55,7 +55,7 @@ test('Basic', async ({ page }) => {
   await expect(page.locator('#cciout_cci')).toHaveValue('1000000.00');
   await expect(page.locator('#cciout_ccipct')).toHaveValue('100.0000');
   await page.locator('#cci_cost').fill('500000');
-  await page.getByText('Field').click();
+  await page.keyboard.up("0");
   await expect(page.locator('#cciout_cci')).toHaveValue('500000.00');
   await expect(page.locator('#cciout_ccipct')).toHaveValue('50.0000');
   await page.locator('#cci_ccipct').click();
