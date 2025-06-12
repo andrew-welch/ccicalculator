@@ -49,6 +49,11 @@ export default defineConfig({
       use: { ...devices['Desktop Safari'] },
     },
 
+    {
+      name: 'Mobile Safari',
+      use: { ...devices['iPhone 15 Pro'] },
+    },
+
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
@@ -71,7 +76,7 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'npx http-server www -p 3000',
+    command: 'npx http-server -p 3000',
     url: 'http://localhost:3000/' ,
     reuseExistingServer: !process.env.CI,
     stdout: 'pipe',

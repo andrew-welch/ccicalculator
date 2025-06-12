@@ -21,6 +21,31 @@ export default defineConfig({
 
 });
 
+test('Page Loads', async ({ page }) => {  
+  await page.goto('http://localhost:3000/');
+  await expect(page).toHaveTitle('CCI Calculator');
+  });
+
+test('Content is visible', async ({ page }) => {  
+await page.goto('http://localhost:3000/');
+await expect(page.locator('#cci_price')).toBeVisible();
+await expect(page.locator('#cci_cost')).toBeVisible();
+await expect(page.locator('#cci_cci')).toBeVisible();
+await expect(page.locator('#cci_ccipct')).toBeVisible();
+await expect(page.locator('#cciout_price')).toBeVisible();
+await expect(page.locator('#cciout_cost')).toBeVisible();
+await expect(page.locator('#cciout_cci')).toBeVisible();
+await expect(page.locator('#cciout_ccipct')).toBeVisible();
+await expect(page.locator('#collapseOne')).toBeVisible();
+await page.getByRole('button', { name: 'Simple calculation of CCI' }).click();
+await expect(page.locator('#collapseOne')).toBeHidden();
+await page.getByRole('button', { name: 'Calculate target price from' }).click();
+await expect(page.locator('#collapseTwo')).toBeVisible();
+await page.getByRole('button', { name: 'Calculate target price from' }).click();
+await page.getByRole('button', { name: 'Using existing metrics,' }).click();
+await expect(page.locator('#collapseThree')).toBeVisible();
+});
+
 test('Basic', async ({ page }) => {
   //await page.goto('process.env.CLOUDFLARE_PREVIEW_URL');
   await page.goto('http://localhost:3000/');
@@ -52,21 +77,36 @@ test('Basic', async ({ page }) => {
     `);
 });
 
-test('Content is visible', async ({ page }) => {  
+test('Price Input changes Outputs', async ({ page }) => {
 await page.goto('http://localhost:3000/');
-await expect(page.locator('#cci_price')).toBeVisible();
-await expect(page.locator('#cci_cost')).toBeVisible();
-await expect(page.locator('#cci_cci')).toBeVisible();
-await expect(page.locator('#cci_ccipct')).toBeVisible();
-await expect(page.locator('#cciout_price')).toBeVisible();
-await expect(page.locator('#cciout_cost')).toBeVisible();
-await expect(page.locator('#cciout_cci')).toBeVisible();
-await expect(page.locator('#cciout_ccipct')).toBeVisible();
-await expect(page.getByText('1. Enter the total price of')).toBeVisible();
-await page.getByRole('button', { name: 'Simple calculation of CCI' }).click();
-await page.getByRole('button', { name: 'Calculate target price from' }).click();
-await expect(page.getByText('1. Enter the total cost of')).toBeHidden();
-await page.getByRole('button', { name: 'Calculate target price from' }).click();
-await page.getByRole('button', { name: 'Using existing metrics,' }).click();
-await expect(page.getByText('1. Enter the total price (e.g')).toBeVisible();
+await page.locator('#cci_price').click();
+await page.locator('#cci_price').fill('1000');
+await page.keyboard.up("0");
+await expect(page.locator('#cciout_cci')).toHaveValue('1000.00');
+await expect(page.locator('#cciout_ccipct')).toHaveValue('100.0000');
+});
+
+test('Cost Input changes Outputs', async ({ page }) => {
+
+await page.goto('http://localhost:3000/');
+await page.locator('#cci_cost').click();
+await page.locator('#cci_cost').fill('500');
+await page.keyboard.up("0");
+await expect(page.locator('#cciout_cci')).toHaveValue('-500.00');
+await expect(page.locator('#cciout_ccipct')).toHaveValue('0.0000');
+});
+
+test('Price and CCI changes cost', async ({ page }) => {
+  await page.goto('http://localhost:3000/');
+  await page.locator('#cci_price').click();
+  await page.locator('#cci_price').fill('1000');
+  await page.locator('#cci_ccipct').click();
+  await page.locator('#cci_ccipct').fill('80');
+  await page.keyboard.up("0");
+  await expect(page.locator('#cciout_cost')).toHaveValue('200.00');
+  await expect(page.locator('#cci_price_copy_button')).toBeEnabled();
+  await expect(page.locator('#cci_cost_copy_button')).toBeEnabled();
+});
+
+test('', async ({ page }) => {
 });
