@@ -147,7 +147,7 @@ const inputField = document.getElementById('cci_mathinput');
 const resultDisplay = document.getElementById('cci_mathoutput');
 
 // 1. Restrict input to only allow digits and arithmetic operators
-inputField.addEventListener('input', (e) => {
+inputField.addEventListener('input change keyup', (e) => {
   // Strip out anything that isn't a number, math operator, or parenthesis
   const sanitizedValue = e.target.value.replace(/[^0-9+\-*/().\s]/g, '');
   
@@ -158,6 +158,7 @@ inputField.addEventListener('input', (e) => {
   // 2. Safely evaluate the expression
   calculateResult(sanitizedValue);
 });
+
 
 // 3. Safe evaluation helper
 function calculateResult(expression) {
