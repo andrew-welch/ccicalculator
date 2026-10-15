@@ -176,7 +176,7 @@ function calculateResult(expression) {
 
     if (result !== undefined && !isNaN(result)) {
       resultDisplay.textContent = `Result: ${result}`;
-      $("#cciout_mathoutput").val(${result});
+      $("#cciout_mathoutput").val(result);
     } else {
       resultDisplay.textContent = 'Result: Invalid';
     }
