@@ -5,7 +5,7 @@ function calculateCCI()
   let values={}
   let output={}
   
-  values.price = ($("#cci_price").val())
+  values.price = (calculate($("#cci_price").val()))
   values.cost = ($("#cci_cost").val())
   values.cci = ($("#cci_cci").val())
   values.ccipct = ($("#cci_ccipct").val())
