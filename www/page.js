@@ -143,48 +143,108 @@ function flashInput(inputElement) {
 }
 
 
-const inputField = document.getElementById('cci_mathinput');
-const resultDisplay = document.getElementById('cci_mathoutput');
-
-// 1. Restrict input to only allow digits and arithmetic operators
-inputField.addEventListener('input change keyup', (e) => {
-  // Strip out anything that isn't a number, math operator, or parenthesis
-  const sanitizedValue = e.target.value.replace(/[^0-9+\-*/().\s]/g, '');
-  
-  if (e.target.value !== sanitizedValue) {
-    e.target.value = sanitizedValue;
-  }
-  
-  // 2. Safely evaluate the expression
-  calculateResult(sanitizedValue);
-});
 
 
-// 3. Safe evaluation helper
-function calculateResult(expression) {
-  // If empty, reset display
-  if (!expression.trim()) {
-    resultDisplay.textContent = 'Result: --';
-    return;
-  }
-
-  try {
-    // A clean way to compute simple arithmetic safely without eval()
-    // It builds a sandbox return statement isolated from the window object
-    const safeCompute = new Function(`return (${expression})`);
-    const result = safeCompute();
-
-    if (result !== undefined && !isNaN(result)) {
-      resultDisplay.textContent = `Result: ${result}`;
-      $("#cciout_mathoutput").val(result);
-    } else {
-      resultDisplay.textContent = 'Result: Invalid';
+function calculate(expression) {
+    // Allow only numbers, arithmetic operators, brackets,
+    // decimal points, whitespace and the % operator is excluded.
+    if (!/^[\d+\-*/().\s]+$/.test(expression)) {
+        return null;
     }
-  } catch (error) {
-    // Catches unfinished syntax while typing (e.g., "10 +")
-    resultDisplay.textContent = 'Result: ...';
-  }
+
+    // Parse using a restricted arithmetic grammar.
+    const tokens = expression.match(
+        /\d*\.?\d+|[+\-*/()]|\s+/g
+    );
+
+    if (!tokens) return null;
+
+    const input = tokens.join('').replace(/\s/g, '');
+    if (input !== expression.replace(/\s/g, '')) return null;
+
+    let pos = 0;
+
+    function parseExpression() {
+        let value = parseTerm();
+
+        while (tokens[pos] === '+' || tokens[pos] === '-') {
+            const op = tokens[pos++];
+            const right = parseTerm();
+            value = op === '+' ? value + right : value - right;
+        }
+
+        return value;
+    }
+
+    function parseTerm() {
+        let value = parseUnary();
+
+        while (tokens[pos] === '*' || tokens[pos] === '/') {
+            const op = tokens[pos++];
+            const right = parseUnary();
+
+            if (op === '/' && right === 0) {
+                throw new Error('Division by zero');
+            }
+
+            value = op === '*' ? value * right : value / right;
+        }
+
+        return value;
+    }
+
+    function parseUnary() {
+        if (tokens[pos] === '+') {
+            pos++;
+            return parseUnary();
+        }
+
+        if (tokens[pos] === '-') {
+            pos++;
+            return -parseUnary();
+        }
+
+        if (tokens[pos] === '(') {
+            pos++;
+            const value = parseExpression();
+
+            if (tokens[pos++] !== ')') {
+                throw new Error('Missing closing bracket');
+            }
+
+            return value;
+        }
+
+        const token = tokens[pos++];
+
+        if (!token || !/^\d*\.?\d+$/.test(token)) {
+            throw new Error('Invalid number');
+        }
+
+        return Number(token);
+    }
+
+    try {
+        const value = parseExpression();
+
+        if (pos !== tokens.length || !Number.isFinite(value)) {
+            return null;
+        }
+
+        return value;
+    } catch {
+        return null;
+    }
 }
+
+$('.cci_mathinput').on('input', function () {
+    const expression = $(this).val().trim();
+    const result = calculate(expression);
+
+    $('.cci_mathoutput').val(
+        expression !== '' && result !== null ? result : ''
+    );
+});
 
 
 
