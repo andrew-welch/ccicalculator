@@ -237,11 +237,11 @@ function calculate(expression) {
     }
 }
 
-$('.cci_mathinput').on('input', function () {
+$('#cci_mathinput').on('input', function () {
     const expression = $(this).val().trim();
     const result = calculate(expression);
 
-    $('.cci_mathoutput').val(
+    $('#cci_mathoutput').val(
         expression !== '' && result !== null ? result : ''
     );
 });
